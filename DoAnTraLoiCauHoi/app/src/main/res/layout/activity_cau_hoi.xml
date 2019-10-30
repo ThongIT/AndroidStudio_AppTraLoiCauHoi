@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CauHoi">
+
+    <Button
+        android:id="@+id/button25"
+        android:layout_width="61dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:drawableLeft="@drawable/gem"
+        app:layout_constraintStart_toEndOf="@+id/button_cauhoi_credit"
+        app:layout_constraintTop_toTopOf="@+id/button_cauhoi_khangia" />
+
+    <Button
+        android:id="@+id/button_cauhoi_a"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="#2196F3"
+        android:ellipsize="none"
+        android:text="Messi"
+        android:onClick="a"
+        android:drawableLeft="@drawable/a"
+        android:textColor="#DAF7F2F2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_cauhoi" />
+
+    <Button
+        android:id="@+id/button_cauhoi_d"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="#2196F3"
+        android:ellipsize="none"
+        android:text="Ronaldo"
+        android:onClick="d"
+        android:textColor="#DAF7F2F2"
+        android:drawableLeft="@drawable/d"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cauhoi_c" />
+
+    <Button
+        android:id="@+id/button_cauhoi_b"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="#2196F3"
+        android:ellipsize="none"
+        android:text="Suarez"
+        android:onClick="b"
+        android:drawableLeft="@drawable/b"
+        android:textColor="#DAF7F2F2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cauhoi_a" />
+
+    <Button
+        android:id="@+id/button_cauhoi_c"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:onClick="c"
+        android:layout_marginEnd="32dp"
+        android:background="#2196F3"
+        android:ellipsize="none"
+        android:text="Ibrahimovic"
+        android:drawableLeft="@drawable/c"
+        android:textColor="#DAF7F2F2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cauhoi_b" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_cauhoi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:text="Cầu thủ giành Chiếc giày vàng châu Âu mùa 2014/15 là ai?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_socau" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_socau"
+        android:layout_width="144dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="8dp"
+        android:background="#510FC7"
+        android:text="2"
+        android:textAlignment="center"
+        android:textColor="#EEF0F5"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Câu hỏi"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_diem" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_diem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="Điểm: 2000"
+        android:textColor="#06F112"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="5000"
+        android:textColor="#F80606"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toTopOf="@+id/textView25" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:drawableLeft="@drawable/gem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tendangnhap" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_tim2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim1"
+        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim1" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_tim1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:drawableLeft="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tendangnhap"
+        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tendangnhap" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_tim5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim4"
+        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim4" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_tim4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim3"
+        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim3" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_tim3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/heart"
+        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim2"
+        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim2" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_tendangnhap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Xin chào"
+        android:textColor="#F00555"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_thoigian"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/time"
+        android:text="15s"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_cauhoi_d"
+        app:layout_constraintStart_toStartOf="@+id/button_cauhoi_d"
+        app:layout_constraintTop_toBottomOf="@+id/button_cauhoi_d" />
+
+    <Button
+        android:id="@+id/button_cauhoi_doicau"
+        android:layout_width="65dp"
+        android:layout_height="69dp"
+        android:drawableLeft="@drawable/change"
+        app:layout_constraintStart_toStartOf="@+id/textView_cauhoi_thoigian"
+        app:layout_constraintTop_toTopOf="@+id/button_cauhoi_50" />
+
+    <Button
+        android:id="@+id/button_cauhoi_50"
+        android:layout_width="62dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="50:50"
+        app:layout_constraintStart_toEndOf="@+id/button_cauhoi_doicau"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_thoigian" />
+
+    <Button
+        android:id="@+id/button_cauhoi_khangia"
+        android:layout_width="64dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="8dp"
+        android:drawableLeft="@drawable/team"
+        app:layout_constraintStart_toEndOf="@+id/button_cauhoi_50"
+        app:layout_constraintTop_toTopOf="@+id/button_cauhoi_50" />
+
+    <Button
+        android:id="@+id/button_cauhoi_credit"
+        android:layout_width="63dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:drawableLeft="@drawable/phone"
+        app:layout_constraintStart_toEndOf="@+id/button_cauhoi_khangia"
+        app:layout_constraintTop_toTopOf="@+id/button_cauhoi_khangia" />
+</androidx.constraintlayout.widget.ConstraintLayout>
