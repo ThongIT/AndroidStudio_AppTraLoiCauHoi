@@ -27,19 +27,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(dangnhap);
             }
         });
-        buttondangki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent dangnhap=new Intent(MainActivity.this,DangKi.class);
-                startActivity(dangnhap);
-            }
-        });
-        buttonquenmatkhau.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent dangnhap=new Intent(MainActivity.this,MatKhau.class);
-                startActivity(dangnhap);
-            }
-        });
     }
 }
