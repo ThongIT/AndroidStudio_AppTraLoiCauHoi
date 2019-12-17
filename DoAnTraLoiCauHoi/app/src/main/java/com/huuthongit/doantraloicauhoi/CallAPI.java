@@ -14,14 +14,12 @@ import java.util.Map;
 
 public class CallAPI {
     private static final String LOG_TAG = CallAPI.class.getSimpleName();
-    private static final String BASE_URL =  "http://10.0.3.2:8000/api/"; // Genymotion
-    //private static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD
-
-    public static String getJSONData(String uri, String method) {
+    //private static final String BASE_URL =  "http://10.0.3.2:8000/api/"; // Genymotion
+    private static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD
+    static String getJSONData(String uri, String method) {
         HttpURLConnection urlConnection = null;
         String jsonString = null;
         Uri builtURI = Uri.parse(BASE_URL + uri).buildUpon().build();
-
         try {
 
             URL requestURL = new URL(builtURI.toString());
@@ -40,21 +38,41 @@ public class CallAPI {
                 urlConnection.disconnect();
             }
         }
-        Log.d("TEST", jsonString);
         return jsonString;
     }
 
-    public static String doRequest(String uri, String method, HashMap<String, String> params, String token) {
+    static String getJSONData(String uri, String BASE_URL, String method) {
         HttpURLConnection urlConnection = null;
         String jsonString = null;
-        Uri.Builder builder =  Uri.parse(BASE_URL + uri).buildUpon();
+        Uri builtURI = Uri.parse(BASE_URL + uri).buildUpon().build();
+        try {
 
-        if (params != null) {
-            for(Map.Entry<String, String> pa : params.entrySet()) {
-                builder.appendQueryParameter(pa.getKey(), pa.getValue());
+            URL requestURL = new URL(builtURI.toString());
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod(method);
+            urlConnection.connect();
+
+            // Get the InputStream.
+            InputStream inputStream = urlConnection.getInputStream();
+            jsonString = convertToString(inputStream);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
             }
         }
+        return jsonString;
+    }
 
+    static String getJSONData(String uri, String method, HashMap<String, String> param ){
+        HttpURLConnection urlConnection = null;
+        String jsonString = null;
+        Uri.Builder builder = Uri.parse(BASE_URL + uri).buildUpon();
+        for (Map.Entry<String,String> pa:param.entrySet()){
+            builder.appendQueryParameter(pa.getKey(),pa.getValue());
+        }
         Uri builtURI = builder.build();
 
         try {
@@ -62,11 +80,6 @@ public class CallAPI {
             URL requestURL = new URL(builtURI.toString());
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod(method);
-
-            if (token != null) {
-                urlConnection.setRequestProperty("Authorization", token);
-            }
-
             urlConnection.connect();
 
             // Get the InputStream.
@@ -80,12 +93,11 @@ public class CallAPI {
                 urlConnection.disconnect();
             }
         }
-
         Log.d(LOG_TAG, jsonString);
         return jsonString;
     }
 
-    public static String convertToString(InputStream stream) {
+    static String convertToString(InputStream stream) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         StringBuilder builder = new StringBuilder();
         String line;

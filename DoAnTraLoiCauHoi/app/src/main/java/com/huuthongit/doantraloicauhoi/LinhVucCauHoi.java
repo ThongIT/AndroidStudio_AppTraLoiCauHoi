@@ -21,29 +21,23 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
-    private Button btn1;
-    private Button btn2;
-    private Button btn3;
-    private Button btn4;
-    private Button btn5;
+    private Button linhVuc1;
+    private Button linhVuc2;
+    private Button linhVuc3;
+    private Button linhVuc4;
+    private Button linhVuc5;
+    public static String linhVucDuocChon;
+    private ArrayList<LinhVucArray> linhVucArray = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Button button_thethao;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linh_vuc_cau_hoi);
-//        button_thethao=(Button)findViewById(R.id.button_linhvuccauhoi_1);
-//        button_thethao.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent thethao=new Intent(LinhVucCauHoi.this,CauHoi.class);
-//                startActivity(thethao);
-//            }
-       // });
-        this.btn1 = findViewById(R.id.button_linhvuccauhoi_1);
-        this.btn2 = findViewById(R.id.button_linhvuccauhoi_2);
-        this.btn3 = findViewById(R.id.button_linhvuccauhoi_3);
-        this.btn4 = findViewById(R.id.button_linhvuccauhoi_4);
-        this.btn5 = findViewById(R.id.button_linhvuccauhoi_5);
+        linhVuc1 = findViewById(R.id.button_linhvuccauhoi_1);
+        linhVuc2 = findViewById(R.id.button_linhvuccauhoi_2);
+        linhVuc3 = findViewById(R.id.button_linhvuccauhoi_3);
+        linhVuc4 = findViewById(R.id.button_linhvuccauhoi_4);
+        linhVuc5 = findViewById(R.id.button_linhvuccauhoi_5);
         if (getSupportLoaderManager().getLoader(0) != null) {
             getSupportLoaderManager().initLoader(0, null, this);
         }
@@ -62,13 +56,19 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
         try {
-            JSONObject jsonObject = new JSONObject(data);
-            JSONArray itemsArray = jsonObject.getJSONArray("data");
-            this.btn1.setText(itemsArray.getJSONObject(0).getString("ten_linh_vuc"));
-            this.btn2.setText(itemsArray.getJSONObject(1).getString("ten_linh_vuc"));
-            this.btn3.setText(itemsArray.getJSONObject(2).getString("ten_linh_vuc"));
-            this.btn4.setText(itemsArray.getJSONObject(3).getString("ten_linh_vuc"));
-            this.btn5.setText(itemsArray.getJSONObject(4).getString("ten_linh_vuc"));
+            JSONObject json = new JSONObject(data);
+            JSONArray itemsArray = json.getJSONArray("data");
+            for (int i = 0; i < itemsArray.length(); i++){
+                JSONObject jsonObject = itemsArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String ten = jsonObject.getString("ten_linh_vuc");
+                linhVucArray.add( new LinhVucArray(Integer.valueOf(id),ten));
+            }
+            linhVuc1.setText(String.valueOf(linhVucArray.get(0).getTenLinhVuc()));
+            linhVuc2.setText(String.valueOf(linhVucArray.get(1).getTenLinhVuc()));
+            linhVuc3.setText(String.valueOf(linhVucArray.get(2).getTenLinhVuc()));
+            linhVuc4.setText(String.valueOf(linhVucArray.get(3).getTenLinhVuc()));
+            linhVuc5.setText(String.valueOf(linhVucArray.get(3).getTenLinhVuc()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -77,6 +77,31 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
+    }
+
+    public void linhvuc1(View view) {
+        linhVucDuocChon = String.valueOf(linhVucArray.get(0).getId());
+        startActivity(new Intent(this, CauHoi.class));
+    }
+
+    public void linhvuc5(View view) {
+        linhVucDuocChon = String.valueOf(linhVucArray.get(4).getId());
+        startActivity(new Intent(this, CauHoi.class));
+    }
+
+    public void linhvuc3(View view) {
+        linhVucDuocChon = String.valueOf(linhVucArray.get(2).getId());
+        startActivity(new Intent(this, CauHoi.class));
+    }
+
+    public void linhvuc4(View view) {
+        linhVucDuocChon = String.valueOf(linhVucArray.get(3).getId());
+        startActivity(new Intent(this, CauHoi.class));
+    }
+
+    public void linhvuc2(View view) {
+        linhVucDuocChon = String.valueOf(linhVucArray.get(1).getId());
+        startActivity(new Intent(this, CauHoi.class));
     }
 }
 
