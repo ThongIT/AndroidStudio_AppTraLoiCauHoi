@@ -16,8 +16,6 @@
         <activity android:name=".BangXepHang" />
         <activity android:name=".LichSuChoi" />
         <activity android:name=".MuaCredit" />
-        <activity android:name=".TraLoiSai" />
-        <activity android:name=".TraLoiDung" />
         <activity android:name=".CauHoi" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuanLiTaiKhoan" />

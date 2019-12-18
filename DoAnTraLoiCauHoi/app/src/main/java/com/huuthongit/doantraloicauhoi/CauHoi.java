@@ -41,6 +41,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
     public static int soTim=5;
     private Thread thread = new Thread();
     private ArrayList<CauHoiArray> cauHoiArrays = new ArrayList<>();
+    public static String DapAnDuocChon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,8 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
         button_c = (Button) findViewById(R.id.button_cauhoi_c);
         button_d = (Button) findViewById(R.id.button_cauhoi_d);
         button_KhanGia=(Button)findViewById(R.id.button_cauhoi_khangia);
-        CountDownTimer countDownTimer=new CountDownTimer(3000, 1000) {
+        //countdowntimer
+        CountDownTimer countDownTimer=new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 long dem=millisUntilFinished / 1000;
@@ -148,6 +150,41 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
 
 
     }
+    public void openDialogTraLoiSai(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Bạn đã trả lời sai");
+        alertDialogBuilder.setPositiveButton("Chơi tiếp",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        soTim=soTim-1;
+                        if(soTim>0)
+                        {
+                            tim.setText(""+soTim);
+                            chuyenManHinhSangLinhVuc();
+                        }
+                        else
+                        {
+
+                            chuyenManHinhMenu();
+
+                        }
+
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("Dừng",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                chuyenManHinhMenu();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
+
+    }
 
     @NonNull
     @Override
@@ -186,6 +223,89 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
+    }
+    private void traLoiDungCauHoi_ThoiGian(){
+        CountDownTimer countDownTimer=new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                long dem=millisUntilFinished / 1000;
+                if(dem==0)
+                {
+                    chuyenManHinhSangLinhVuc();
+                }
+            }
+
+            @Override
+            public void onFinish() {
+
+
+            }
+        }.start();
+    }
+
+    public void a(View view) {
+        DapAnDuocChon = cauHoiArrays.get(0).getDap_an();
+        String a="A";
+        if(a.equals(DapAnDuocChon))
+        {
+            Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
+            button_a.setBackgroundResource(R.drawable.bg_caudung);
+            traLoiDungCauHoi_ThoiGian();
+
+        }
+        else
+        {
+            button_a.setBackgroundResource(R.drawable.bg_causai);
+            openDialogTraLoiSai();
+        }
+    }
+
+    public void b(View view) {
+        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+        String b="B";
+        if(b.equals(DapAnDuocChon))
+        {
+            Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
+            button_b.setBackgroundResource(R.drawable.bg_caudung);
+            traLoiDungCauHoi_ThoiGian();
+        }
+        else
+        {
+            button_b.setBackgroundResource(R.drawable.bg_causai);
+            openDialogTraLoiSai();
+        }
+    }
+
+    public void c(View view) {
+        DapAnDuocChon = cauHoiArrays.get(0).getDap_an();
+        String c="C";
+        if(c.equals(DapAnDuocChon))
+        {
+            Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
+            button_c.setBackgroundResource(R.drawable.bg_caudung);
+            traLoiDungCauHoi_ThoiGian();
+        }
+        else
+        {
+            button_c.setBackgroundResource(R.drawable.bg_causai);
+            openDialogTraLoiSai();
+        }
+    }
+
+    public void d(View view) {
+        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+        String d="D";
+        if(d.equals(DapAnDuocChon))
+        {
+            Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
+            button_d.setBackgroundResource(R.drawable.bg_caudung);
+            traLoiDungCauHoi_ThoiGian();
+        }
+        else
+        {
+            button_d.setBackgroundResource(R.drawable.bg_causai);
+            openDialogTraLoiSai();
+        }
     }
 }
 
