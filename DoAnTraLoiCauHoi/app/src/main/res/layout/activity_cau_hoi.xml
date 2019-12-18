@@ -12,29 +12,32 @@
         android:layout_width="61dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
-        android:drawableLeft="@drawable/gem"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
+        android:text="gem"
         app:layout_constraintStart_toEndOf="@+id/button_cauhoi_credit"
-        app:layout_constraintTop_toTopOf="@+id/button_cauhoi_khangia" />
+        app:layout_constraintTop_toTopOf="@+id/button_cauhoi_credit" />
 
     <Button
         android:id="@+id/button_cauhoi_a"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="#2196F3"
-        android:ellipsize="none"
-        android:text="Messi"
-        android:onClick="a"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
         android:drawableLeft="@drawable/a"
+        android:ellipsize="none"
+        android:onClick="a"
+        android:text="Messi"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_cauhoi" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_time" />
 
     <Button
         android:id="@+id/button_cauhoi_d"
@@ -43,10 +46,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="#2196F3"
+        android:backgroundTint="#2196F3"
         android:ellipsize="none"
         android:text="Ronaldo"
         android:onClick="d"
+        android:background="@drawable/buttonmenu"
         android:textColor="#DAF7F2F2"
         android:drawableLeft="@drawable/d"
         android:textSize="18sp"
@@ -63,10 +67,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="#2196F3"
+        android:backgroundTint="#2196F3"
         android:ellipsize="none"
         android:text="Suarez"
         android:onClick="b"
+        android:background="@drawable/buttonmenu"
         android:drawableLeft="@drawable/b"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
@@ -84,9 +89,10 @@
         android:layout_marginTop="16dp"
         android:onClick="c"
         android:layout_marginEnd="32dp"
-        android:background="#2196F3"
+        android:backgroundTint="#2196F3"
         android:ellipsize="none"
         android:text="Ibrahimovic"
+        android:background="@drawable/buttonmenu"
         android:drawableLeft="@drawable/c"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
@@ -99,55 +105,18 @@
     <TextView
         android:id="@+id/textView_cauhoi_cauhoi"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="#2196F3"
         android:text="Cầu thủ giành Chiếc giày vàng châu Âu mùa 2014/15 là ai?"
-        android:textSize="18sp"
+        android:textColor="#F44336"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_socau" />
-
-    <TextView
-        android:id="@+id/textView_cauhoi_socau"
-        android:layout_width="144dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="8dp"
-        android:background="#510FC7"
-        android:text="2"
-        android:textAlignment="center"
-        android:textColor="#EEF0F5"
-        android:textSize="80sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Câu hỏi"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_diem" />
-
-    <TextView
-        android:id="@+id/textView_cauhoi_diem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Điểm: 2000"
-        android:textColor="#06F112"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_cauhoi_credit"
@@ -170,10 +139,12 @@
         app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tendangnhap" />
 
     <TextView
-        android:id="@+id/textView_cauhoi_tim2"
+        android:id="@+id/textView_cauhoi_tim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim1"
         app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim1" />
 
@@ -185,30 +156,6 @@
         android:drawableLeft="@drawable/heart"
         app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tendangnhap"
         app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tendangnhap" />
-
-    <TextView
-        android:id="@+id/textView_cauhoi_tim5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim4"
-        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim4" />
-
-    <TextView
-        android:id="@+id/textView_cauhoi_tim4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim3"
-        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim3" />
-
-    <TextView
-        android:id="@+id/textView_cauhoi_tim3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/textView_cauhoi_tim2"
-        app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tim2" />
 
     <TextView
         android:id="@+id/textView_cauhoi_tendangnhap"
@@ -223,25 +170,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView_cauhoi_thoigian"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:drawableLeft="@drawable/time"
-        android:text="15s"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/button_cauhoi_d"
-        app:layout_constraintStart_toStartOf="@+id/button_cauhoi_d"
-        app:layout_constraintTop_toBottomOf="@+id/button_cauhoi_d" />
-
     <Button
         android:id="@+id/button_cauhoi_doicau"
         android:layout_width="65dp"
         android:layout_height="69dp"
-        android:drawableLeft="@drawable/change"
-        app:layout_constraintStart_toStartOf="@+id/textView_cauhoi_thoigian"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
+        android:text="đổi"
+        app:layout_constraintStart_toStartOf="@+id/button_cauhoi_d"
         app:layout_constraintTop_toTopOf="@+id/button_cauhoi_50" />
 
     <Button
@@ -249,17 +185,22 @@
         android:layout_width="62dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
         android:text="50:50"
         app:layout_constraintStart_toEndOf="@+id/button_cauhoi_doicau"
-        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_thoigian" />
+        app:layout_constraintTop_toBottomOf="@+id/button_cauhoi_d" />
 
     <Button
         android:id="@+id/button_cauhoi_khangia"
         android:layout_width="64dp"
         android:layout_height="69dp"
         android:layout_marginStart="8dp"
-        android:drawableLeft="@drawable/team"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
+
+        android:text="KG"
         app:layout_constraintStart_toEndOf="@+id/button_cauhoi_50"
         app:layout_constraintTop_toTopOf="@+id/button_cauhoi_50" />
 
@@ -268,7 +209,84 @@
         android:layout_width="63dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
-        android:drawableLeft="@drawable/phone"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
+        android:text="phone"
         app:layout_constraintStart_toEndOf="@+id/button_cauhoi_khangia"
         app:layout_constraintTop_toTopOf="@+id/button_cauhoi_khangia" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Số điểm"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Câu hỏi"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_diem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="2000"
+        android:textColor="#EE1809"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_socau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="1"
+        android:textColor="#E71808"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView_cauhoi_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:backgroundTint="#2196F3"
+        android:drawableLeft="@drawable/time"
+        android:text="60"
+        android:background="@drawable/buttonmenu"
+        android:textAlignment="center"
+        android:textColor="#E61A0B"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cauhoi_cauhoi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

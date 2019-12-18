@@ -8,11 +8,14 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,23 +35,42 @@ import java.util.ArrayList;
 
 public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
     Button button_a,button_b,button_c,button_d,button_KhanGia,button_50,button_doicauhoi,button_goinguoithan;
-    private TextView noi_dung, cau_hoi_so, diem;
+    private TextView noi_dung, cau_hoi_so, diem,thoiGian,tim;
     private static final String TAG = "LinhVuc";
     private int stt, mdiem, color;
+    public static int soTim=5;
     private Thread thread = new Thread();
     private ArrayList<CauHoiArray> cauHoiArrays = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cau_hoi);
+        tim=findViewById(R.id.textView_cauhoi_tim);
         noi_dung = findViewById(R.id.textView_cauhoi_cauhoi);
         cau_hoi_so = findViewById(R.id.textView_cauhoi_socau);
+        thoiGian=findViewById(R.id.textView_cauhoi_time);
         diem = findViewById(R.id.textView_cauhoi_diem);
         button_a = (Button) findViewById(R.id.button_cauhoi_a);
         button_b = (Button) findViewById(R.id.button_cauhoi_b);
         button_c = (Button) findViewById(R.id.button_cauhoi_c);
         button_d = (Button) findViewById(R.id.button_cauhoi_d);
         button_KhanGia=(Button)findViewById(R.id.button_cauhoi_khangia);
+        CountDownTimer countDownTimer=new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                long dem=millisUntilFinished / 1000;
+                    thoiGian.setText( dem+" s");
+                    if(dem==0)
+                    {
+                        openDialogKetThuc();
+                    }
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
         button_KhanGia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,14 +90,61 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
         }
         diem.setText("" + mdiem);
         cau_hoi_so.setText("" + stt);
+        tim.setText(""+soTim);
 
     }
+    //dialog trơ giúp khán giả
     public void openDialog(){
         Dialog dialog_khanGia=new Dialog(this);
         dialog_khanGia.setContentView(R.layout.dialog_khangia);
         dialog_khanGia.getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
         dialog_khanGia.setTitle("hihi");
         dialog_khanGia.show();
+
+
+    }
+    public void chuyenManHinhSangLinhVuc()
+    {
+        startActivity(new Intent(this, LinhVucCauHoi.class));
+    }
+    public void chuyenManHinhMenu()
+    {
+        startActivity(new Intent(this, Menu.class));
+        Toast.makeText(this,"Bạn chơi lại từ đầu",Toast.LENGTH_SHORT).show();
+    }
+    //dialog kết thúc thời gian
+    public void openDialogKetThuc(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Bạn đã hết thời gian trả lời");
+                alertDialogBuilder.setPositiveButton("Chơi tiếp",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                soTim=soTim-1;
+                                if(soTim>0)
+                                {
+                                    tim.setText(""+soTim);
+                                    chuyenManHinhSangLinhVuc();
+                                }
+                                else
+                                {
+
+                                    chuyenManHinhMenu();
+
+                                }
+
+                            }
+                        });
+
+        alertDialogBuilder.setNegativeButton("Dừng",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                chuyenManHinhMenu();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
 
 
     }

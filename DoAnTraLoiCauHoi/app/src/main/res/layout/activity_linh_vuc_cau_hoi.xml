@@ -14,14 +14,13 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/buttonmenu"
         android:backgroundTint="#188306"
         android:ellipsize="none"
-        android:text="Thể thao"
         android:onClick="linhvuc1"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/buttonmenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,14 +31,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/buttonmenu"
         android:backgroundTint="#1E83E9"
         android:ellipsize="none"
-        android:text="Toán"
         android:onClick="linhvuc2"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/buttonmenu"
         app:layout_constraintEnd_toEndOf="@+id/button_linhvuccauhoi_1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_linhvuccauhoi_1"
@@ -50,14 +48,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/buttonmenu"
         android:backgroundTint="#9F74EC"
         android:ellipsize="none"
-        android:text="Địa lí"
         android:onClick="linhvuc3"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/buttonmenu"
         app:layout_constraintEnd_toEndOf="@+id/button_linhvuccauhoi_2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_linhvuccauhoi_2"
@@ -68,14 +65,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/buttonmenu"
         android:backgroundTint="#BBB046"
         android:ellipsize="none"
-        android:text="Tiếng anh"
         android:onClick="linhvuc5"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/buttonmenu"
         app:layout_constraintEnd_toEndOf="@+id/button_linhvuccauhoi_4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_linhvuccauhoi_4"
@@ -86,14 +82,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/buttonmenu"
         android:backgroundTint="#F04C94"
         android:ellipsize="none"
-        android:text="Âm nhạc"
         android:onClick="linhvuc4"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/buttonmenu"
         app:layout_constraintEnd_toEndOf="@+id/button_linhvuccauhoi_3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/button_linhvuccauhoi_3"
@@ -122,36 +117,13 @@
         app:layout_constraintTop_toTopOf="@+id/textView_cauhoi_tendangnhap" />
 
     <TextView
-        android:id="@+id/textView_linhvuccauhoi_tim2"
+        android:id="@+id/textView_linhvuccauhoi_tim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
+        android:layout_marginStart="8dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/textView_linhvuccauhoi_tim1"
         app:layout_constraintTop_toTopOf="@+id/textView_linhvuccauhoi_tim1" />
-
-    <TextView
-        android:id="@+id/textView_linhvuccauhoi_tim3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/textView_linhvuccauhoi_tim2"
-        app:layout_constraintTop_toTopOf="@+id/textView_linhvuccauhoi_tim2" />
-
-    <TextView
-        android:id="@+id/textView_linhvuccauhoi_tim4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/textView_linhvuccauhoi_tim3"
-        app:layout_constraintTop_toTopOf="@+id/textView_linhvuccauhoi_tim3" />
-
-    <TextView
-        android:id="@+id/textView_linhvuccauhoi_tim5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/heart"
-        app:layout_constraintStart_toEndOf="@+id/textView_linhvuccauhoi_tim4"
-        app:layout_constraintTop_toTopOf="@+id/textView_linhvuccauhoi_tim4" />
 
     <TextView
         android:id="@+id/textView13"
@@ -174,55 +146,72 @@
         app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <TextView
-        android:id="@+id/textView_linhvuccauhoi_diem"
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Điểm: 0"
-        android:textColor="#06F112"
+        android:layout_marginTop="32dp"
+        android:text="Chọn lĩnh vực"
+        android:textColor="#1B1B1A"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_linhvuc_socau" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/textView_linhvuccauhoi_cauhoi"
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Số điểm"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView_linhvuc_diem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="2000"
+        android:textColor="#EE1809"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Câu hỏi"
-        android:textColor="#E4B118"
-        android:textSize="24sp"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_linhvuccauhoi_diem" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
-        android:id="@+id/textView_linhvuccauhoi_socau"
-        android:layout_width="137dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="8dp"
-        android:background="#510FC7"
-        android:text="1"
-        android:textAlignment="center"
-        android:textColor="#EEF0F5"
-        android:textSize="80sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_linhvuccauhoi_cauhoi" />
-
-    <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView_linhvuc_socau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Chọn lĩnh vực"
-        android:textColor="#C9B71C"
-        android:textSize="18sp"
+        android:text="1"
+        android:textColor="#E71808"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_linhvuccauhoi_socau" />
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 </androidx.constraintlayout.widget.ConstraintLayout>

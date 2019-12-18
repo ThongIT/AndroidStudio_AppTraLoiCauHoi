@@ -19,12 +19,12 @@
         <activity android:name=".TraLoiSai" />
         <activity android:name=".TraLoiDung" />
         <activity android:name=".CauHoi" />
-        <activity android:name=".LinhVucCauHoi" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".QuanLiTaiKhoan" />
         <activity android:name=".Menu" />
         <activity android:name=".MatKhau" />
         <activity android:name=".DangKi" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LinhVucCauHoi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

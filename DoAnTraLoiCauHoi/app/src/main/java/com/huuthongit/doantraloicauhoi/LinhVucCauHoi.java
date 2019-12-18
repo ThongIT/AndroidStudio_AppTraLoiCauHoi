@@ -26,6 +26,8 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
     private Button linhVuc3;
     private Button linhVuc4;
     private Button linhVuc5;
+    TextView textView_Tim;
+    public int soTim=5;
     public static String linhVucDuocChon;
     private ArrayList<LinhVucArray> linhVucArray = new ArrayList<>();
     @Override
@@ -33,6 +35,7 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
         Button button_thethao;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linh_vuc_cau_hoi);
+        textView_Tim=findViewById(R.id.textView_linhvuccauhoi_tim);
         linhVuc1 = findViewById(R.id.button_linhvuccauhoi_1);
         linhVuc2 = findViewById(R.id.button_linhvuccauhoi_2);
         linhVuc3 = findViewById(R.id.button_linhvuccauhoi_3);
@@ -42,7 +45,6 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
             getSupportLoaderManager().initLoader(0, null, this);
         }
         getSupportLoaderManager().restartLoader(0, null, this);
-
 
     }
 
@@ -68,7 +70,7 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
             linhVuc2.setText(String.valueOf(linhVucArray.get(1).getTenLinhVuc()));
             linhVuc3.setText(String.valueOf(linhVucArray.get(2).getTenLinhVuc()));
             linhVuc4.setText(String.valueOf(linhVucArray.get(3).getTenLinhVuc()));
-            linhVuc5.setText(String.valueOf(linhVucArray.get(3).getTenLinhVuc()));
+            linhVuc5.setText(String.valueOf(linhVucArray.get(4).getTenLinhVuc()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
