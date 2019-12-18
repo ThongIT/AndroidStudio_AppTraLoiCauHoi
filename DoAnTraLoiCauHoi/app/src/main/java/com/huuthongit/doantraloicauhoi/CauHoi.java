@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
     private static final String TAG = "LinhVuc";
     private int stt, mdiem, color;
     public static int soTim=5;
+    public static int cauHoiSo=0;
     private Thread thread = new Thread();
     private ArrayList<CauHoiArray> cauHoiArrays = new ArrayList<>();
     public static String DapAnDuocChon;
@@ -51,6 +53,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
         cau_hoi_so = findViewById(R.id.textView_cauhoi_socau);
         thoiGian=findViewById(R.id.textView_cauhoi_time);
         diem = findViewById(R.id.textView_cauhoi_diem);
+        button_50=findViewById(R.id.button_cauhoi_50);
         button_a = (Button) findViewById(R.id.button_cauhoi_a);
         button_b = (Button) findViewById(R.id.button_cauhoi_b);
         button_c = (Button) findViewById(R.id.button_cauhoi_c);
@@ -87,11 +90,12 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
 
 
         if (savedInstanceState != null){
-            mdiem = savedInstanceState.getInt("Diem");
-            stt = savedInstanceState.getInt("Stt");
+//            mdiem = savedInstanceState.getInt("Diem");
+//            stt = savedInstanceState.getInt("Stt");
         }
         diem.setText("" + mdiem);
-        cau_hoi_so.setText("" + stt);
+        cauHoiSo=cauHoiSo+1;
+        cau_hoi_so.setText("" + cauHoiSo);
         tim.setText(""+soTim);
 
     }
@@ -111,6 +115,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
     }
     public void chuyenManHinhMenu()
     {
+        cauHoiSo=0;
         startActivity(new Intent(this, Menu.class));
         Toast.makeText(this,"Bạn chơi lại từ đầu",Toast.LENGTH_SHORT).show();
     }
@@ -130,7 +135,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
                                 }
                                 else
                                 {
-
+                                    cauHoiSo=0;
                                     chuyenManHinhMenu();
 
                                 }
@@ -165,7 +170,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
                         }
                         else
                         {
-
+                            cauHoiSo=0;
                             chuyenManHinhMenu();
 
                         }
@@ -306,6 +311,47 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
             button_d.setBackgroundResource(R.drawable.bg_causai);
             openDialogTraLoiSai();
         }
+    }
+
+    public void Doi(View view) {
+        cauHoiSo=cauHoiSo-1;
+        startActivity(new Intent(this, LinhVucCauHoi.class));
+        Toast.makeText(this,"Bạn đã đồi thành công",Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void namMuoinamMuoi(View view) {
+        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+        String d="D";
+        String a="A";
+        String b="B";
+        String c="C";
+        if (d.equals(DapAnDuocChon))
+        {
+            button_a.setVisibility(View.INVISIBLE);
+            button_c.setVisibility(View.INVISIBLE);
+            button_50.setEnabled(false);
+        }
+        if (a.equals(DapAnDuocChon))
+        {
+            button_b.setVisibility(View.INVISIBLE);
+            button_c.setVisibility(View.INVISIBLE);
+            button_50.setEnabled(false);
+        }
+        if (c.equals(DapAnDuocChon))
+        {
+            button_b.setVisibility(View.INVISIBLE);
+            button_d.setVisibility(View.INVISIBLE);
+            button_50.setEnabled(false);
+        }
+        if (b.equals(DapAnDuocChon))
+        {
+            button_d.setVisibility(View.INVISIBLE);
+            button_c.setVisibility(View.INVISIBLE);
+            button_50.setEnabled(false);
+        }
+
+
     }
 }
 

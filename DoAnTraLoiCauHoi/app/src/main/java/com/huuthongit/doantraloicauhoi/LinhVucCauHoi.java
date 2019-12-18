@@ -27,7 +27,7 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
     private Button linhVuc4;
     private Button linhVuc5;
     TextView textView_Tim;
-    public int soTim=5;
+    public int z=5;
     public static String linhVucDuocChon;
     private ArrayList<LinhVucArray> linhVucArray = new ArrayList<>();
     @Override
