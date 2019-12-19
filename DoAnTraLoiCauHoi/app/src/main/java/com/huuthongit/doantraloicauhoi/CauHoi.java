@@ -33,6 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
     Button button_a,button_b,button_c,button_d,button_KhanGia,button_50,button_doicauhoi,button_goinguoithan;
@@ -41,6 +42,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
     private int stt, mdiem, color;
     public static int soTim=5;
     public static int cauHoiSo=0;
+    public static int soDiem=0;
     private Thread thread = new Thread();
     private ArrayList<CauHoiArray> cauHoiArrays = new ArrayList<>();
     public static String DapAnDuocChon;
@@ -58,7 +60,6 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
         button_b = (Button) findViewById(R.id.button_cauhoi_b);
         button_c = (Button) findViewById(R.id.button_cauhoi_c);
         button_d = (Button) findViewById(R.id.button_cauhoi_d);
-        button_KhanGia=(Button)findViewById(R.id.button_cauhoi_khangia);
         //countdowntimer
         CountDownTimer countDownTimer=new CountDownTimer(30000, 1000) {
             @Override
@@ -76,12 +77,12 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
 
             }
         }.start();
-        button_KhanGia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDialog();
-            }
-        });
+//        button_KhanGia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openDialog();
+//            }
+//        });
         if(getSupportLoaderManager().getLoader(0)!=null){
             getSupportLoaderManager().initLoader(0,null,this);
         }
@@ -93,7 +94,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
 //            mdiem = savedInstanceState.getInt("Diem");
 //            stt = savedInstanceState.getInt("Stt");
         }
-        diem.setText("" + mdiem);
+        diem.setText(""+soDiem);
         cauHoiSo=cauHoiSo+1;
         cau_hoi_so.setText("" + cauHoiSo);
         tim.setText(""+soTim);
@@ -136,6 +137,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
                                 else
                                 {
                                     cauHoiSo=0;
+                                    soDiem=0;
                                     chuyenManHinhMenu();
 
                                 }
@@ -171,6 +173,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
                         else
                         {
                             cauHoiSo=0;
+                            soDiem=0;
                             chuyenManHinhMenu();
 
                         }
@@ -256,6 +259,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
             Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
             button_a.setBackgroundResource(R.drawable.bg_caudung);
             traLoiDungCauHoi_ThoiGian();
+            soDiem=soDiem+10;
 
         }
         else
@@ -273,6 +277,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
             Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
             button_b.setBackgroundResource(R.drawable.bg_caudung);
             traLoiDungCauHoi_ThoiGian();
+            soDiem=soDiem+10;
         }
         else
         {
@@ -289,6 +294,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
             Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
             button_c.setBackgroundResource(R.drawable.bg_caudung);
             traLoiDungCauHoi_ThoiGian();
+            soDiem=soDiem+10;
         }
         else
         {
@@ -305,6 +311,7 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
             Toast.makeText(this,"Bạn chọn đúng",Toast.LENGTH_SHORT).show();
             button_d.setBackgroundResource(R.drawable.bg_caudung);
             traLoiDungCauHoi_ThoiGian();
+            soDiem=soDiem+10;
         }
         else
         {
@@ -312,14 +319,14 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
             openDialogTraLoiSai();
         }
     }
-
+    //đổi câu hỏi theo lĩnh vực
     public void Doi(View view) {
         cauHoiSo=cauHoiSo-1;
         startActivity(new Intent(this, LinhVucCauHoi.class));
         Toast.makeText(this,"Bạn đã đồi thành công",Toast.LENGTH_SHORT).show();
 
     }
-
+    // 50 50
     public void namMuoinamMuoi(View view) {
         DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
         String d="D";
@@ -352,6 +359,72 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
         }
 
 
+    }
+    // gọi điện thoại cho nguoi thân
+    public void phone(View view) {
+        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Trợ giúp gọi điện thoại cho người thân");
+        builder.setMessage("Câu trả lời giúp bạn là: "+DapAnDuocChon);
+        builder.setPositiveButton("OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(),
+                                "Cảm ơn bạn",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+        builder.setCancelable(false);
+        builder.show();
+    }
+
+    public void KhanGia(View view) {
+        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+        int tong=100;
+        int min=0;
+        int dung=25;
+
+        int dapAnDung=new Random().nextInt(((tong-dung)-min+1)+min);
+        dapAnDung=dung+dapAnDung;
+        int sai1=new Random().nextInt(((tong-dapAnDung)-min+1)+min);
+        int sai2=new Random().nextInt(((tong-dapAnDung-sai1)-min+1)+min);
+        int sai3=tong-dapAnDung-sai1-sai2;
+        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+        String d="D";
+        String a="A";
+        String b="B";
+        String c="C";
+        String[] items=new String[0];
+        if (d.equals(DapAnDuocChon))
+        {
+            items = new String[]{"Đáp án A: " + sai3 + "%", "Đáp án B: " + sai2 + "%", "Đáp án C: " + sai1 + "%", "Đáp án D: " + dapAnDung + "%"};
+        }
+        if (a.equals(DapAnDuocChon))
+        {
+            items = new String[]{"Đáp án A: "+ dapAnDung+"%", "Đáp án B: "+ sai2+"%", "Đáp án C: "+ sai1+"%","Đáp án D: "+ sai3+"%"};
+        }
+        if (c.equals(DapAnDuocChon))
+        {
+            items = new String[]{"Đáp án A: "+ sai1+"%", "Đáp án B: "+ sai2+"%", "Đáp án C: "+ dapAnDung+"%","Đáp án D: "+ sai3+"%"};
+        }
+        if (b.equals(DapAnDuocChon)) {
+            items = new String[]{"Đáp án A: " + sai2 + "%", "Đáp án B: " + dapAnDung + "%", "Đáp án C: " + sai1 + "%", "Đáp án D: " + sai3 + "%"};
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("List of Items")
+
+                .setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+        builder.setPositiveButton("OK", null);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        Button button = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        button.setBackgroundColor(Color.BLACK);
+        button.setPadding(0, 0, 20, 0);
+        button.setTextColor(Color.WHITE);
     }
 }
 

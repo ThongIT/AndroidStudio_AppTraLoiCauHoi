@@ -114,7 +114,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="5000"
         android:textColor="#F80606"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/textView25"
@@ -192,7 +191,7 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/buttonmenu"
         android:backgroundTint="#2196F3"
-
+        android:onClick="KhanGia"
         android:text="KG"
         app:layout_constraintStart_toEndOf="@+id/button_cauhoi_50"
         app:layout_constraintTop_toTopOf="@+id/button_cauhoi_50" />
@@ -205,6 +204,7 @@
         android:background="@drawable/buttonmenu"
         android:backgroundTint="#2196F3"
         android:text="phone"
+        android:onClick="phone"
         app:layout_constraintStart_toEndOf="@+id/button_cauhoi_khangia"
         app:layout_constraintTop_toTopOf="@+id/button_cauhoi_khangia" />
 
