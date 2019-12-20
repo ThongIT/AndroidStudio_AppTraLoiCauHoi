@@ -13,9 +13,10 @@
         android:layout_width="351dp"
         android:layout_height="53dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:drawableLeft="@drawable/user2"
+        android:background="@drawable/bg_edit_text"
         android:ems="10"
         android:hint="Tên đăng nhập"
         android:inputType="textPersonName"
@@ -28,21 +29,27 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="380dp"
-        android:layout_height="226dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logooo" />
+        app:srcCompat="@drawable/teamz" />
 
     <EditText
         android:id="@+id/editText_danghap_matkhau"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="351dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Mật khẩu"
+        android:background="@drawable/bg_edit_text"
         android:drawableLeft="@drawable/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/editText_danghap_tendangnhap"
@@ -96,29 +103,48 @@
         app:layout_constraintStart_toStartOf="@+id/button_dangnhap_dangki"
         app:layout_constraintTop_toBottomOf="@+id/button_dangnhap_dangki" />
 
-    <TextView
-        android:id="@+id/textView_dangnhap_facebook"
-        android:layout_width="345dp"
-        android:layout_height="26dp"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:drawableLeft="@drawable/facebook1"
-        android:text="Đăng nhập với Facebook"
-        app:layout_constraintEnd_toEndOf="@+id/button_dangnhap_quenmatkhau"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button_dangnhap_quenmatkhau"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#2196F3"
+        android:drawableLeft="@drawable/facebook"
+        android:text="Facebook"
+        android:textColor="#F3EDF3"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_dangnhap_quenmatkhau" />
 
-    <TextView
-        android:id="@+id/button_dangnhap_goolge"
-        android:layout_width="340dp"
-        android:layout_height="25dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/buttonmenu"
+        android:backgroundTint="#4CAF50"
         android:drawableLeft="@drawable/google"
-        android:text="Đăng nhập với Google"
-        app:layout_constraintEnd_toEndOf="@+id/textView_dangnhap_facebook"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView_dangnhap_facebook"
-        app:layout_constraintTop_toBottomOf="@+id/textView_dangnhap_facebook" />
+        android:text="Google"
+        android:textColor="#F3EDF3"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/button_dangnhap_quenmatkhau" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

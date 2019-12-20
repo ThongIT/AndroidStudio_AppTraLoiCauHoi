@@ -27,5 +27,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(dangnhap);
             }
         });
+        buttondangki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dangki=new Intent(MainActivity.this,DangKi.class);
+                startActivity(dangki);
+            }
+        });
     }
 }

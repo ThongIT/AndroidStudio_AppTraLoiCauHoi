@@ -104,33 +104,19 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="405dp"
-        android:layout_height="206dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logooo" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:fontFamily="serif"
-        android:text="Ai giỏi hơn đây"
-        android:textColor="#F3DA06"
-        android:textColorHighlight="#00BE0B0B"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:srcCompat="@drawable/teamz" />
 
     <TextView
         android:id="@+id/textView_menu_credit"
         android:layout_width="139dp"
         android:layout_height="32dp"
+        android:layout_marginTop="16dp"
         android:drawableLeft="@drawable/gem"
         android:text="5000"
         android:textAlignment="center"
@@ -138,7 +124,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView_menu_tendangnhap"
