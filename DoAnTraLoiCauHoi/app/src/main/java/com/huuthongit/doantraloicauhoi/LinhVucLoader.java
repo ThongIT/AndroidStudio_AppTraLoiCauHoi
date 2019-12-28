@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
 public class LinhVucLoader extends AsyncTaskLoader{
-
     @Override
     protected void onStartLoading() {
         super.onStartLoading();

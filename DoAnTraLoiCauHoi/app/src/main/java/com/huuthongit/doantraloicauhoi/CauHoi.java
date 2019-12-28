@@ -17,15 +17,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
@@ -380,10 +383,80 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
     }
 
     public void KhanGia(View view) {
+//        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+//        int tong=100;
+//        int min=0;
+//        int dung=25;
+//
+//        int dapAnDung=new Random().nextInt(((tong-dung)-min+1)+min);
+//        dapAnDung=dung+dapAnDung;
+//        int sai1=new Random().nextInt(((tong-dapAnDung)-min+1)+min);
+//        int sai2=new Random().nextInt(((tong-dapAnDung-sai1)-min+1)+min);
+//        int sai3=tong-dapAnDung-sai1-sai2;
+//        DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
+//        String d="D";
+//        String a="A";
+//        String b="B";
+//        String c="C";
+//        String[] items=new String[0];
+//        if (d.equals(DapAnDuocChon))
+//        {
+//            items = new String[]{"Đáp án A: " + sai3 + "%", "Đáp án B: " + sai2 + "%", "Đáp án C: " + sai1 + "%", "Đáp án D: " + dapAnDung + "%"};
+//        }
+//        if (a.equals(DapAnDuocChon))
+//        {
+//            items = new String[]{"Đáp án A: "+ dapAnDung+"%", "Đáp án B: "+ sai2+"%", "Đáp án C: "+ sai1+"%","Đáp án D: "+ sai3+"%"};
+//        }
+//        if (c.equals(DapAnDuocChon))
+//        {
+//            items = new String[]{"Đáp án A: "+ sai1+"%", "Đáp án B: "+ sai2+"%", "Đáp án C: "+ dapAnDung+"%","Đáp án D: "+ sai3+"%"};
+//        }
+//        if (b.equals(DapAnDuocChon)) {
+//            items = new String[]{"Đáp án A: " + sai2 + "%", "Đáp án B: " + dapAnDung + "%", "Đáp án C: " + sai1 + "%", "Đáp án D: " + sai3 + "%"};
+//        }
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("List of Items")
+//
+//                .setItems(items, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
+//                    }
+//                });
+//
+//        builder.setPositiveButton("OK", null);
+//        AlertDialog alertDialog = builder.create();
+//        alertDialog.show();
+//        Button button = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+//        button.setBackgroundColor(Color.BLACK);
+//        button.setPadding(0, 0, 20, 0);
+//        button.setTextColor(Color.WHITE);
+
+        final Dialog dialog = new Dialog(this);
+
+        dialog.setContentView(R.layout.dialog_chartbar);
+
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+
+        Button button = dialog.findViewById(R.id.button_d);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        veBieuDo(dialog);
+
+        dialog.show();
+    }
+    public void veBieuDo(Dialog dialog) {
         DapAnDuocChon =cauHoiArrays.get(0).getDap_an();
         int tong=100;
         int min=0;
-        int dung=25;
+        int dung=30;
 
         int dapAnDung=new Random().nextInt(((tong-dung)-min+1)+min);
         dapAnDung=dung+dapAnDung;
@@ -395,37 +468,63 @@ public class CauHoi extends AppCompatActivity implements LoaderManager.LoaderCal
         String a="A";
         String b="B";
         String c="C";
-        String[] items=new String[0];
-        if (d.equals(DapAnDuocChon))
-        {
-            items = new String[]{"Đáp án A: " + sai3 + "%", "Đáp án B: " + sai2 + "%", "Đáp án C: " + sai1 + "%", "Đáp án D: " + dapAnDung + "%"};
-        }
+        Integer[] items=new Integer[0];
+
         if (a.equals(DapAnDuocChon))
         {
-            items = new String[]{"Đáp án A: "+ dapAnDung+"%", "Đáp án B: "+ sai2+"%", "Đáp án C: "+ sai1+"%","Đáp án D: "+ sai3+"%"};
+            items = new Integer[]{dapAnDung ,sai2 ,sai1 , sai3 };
+        }
+        if (b.equals(DapAnDuocChon)) {
+            items = new Integer[]{sai2 ,dapAnDung ,sai1 , sai3 };
         }
         if (c.equals(DapAnDuocChon))
         {
-            items = new String[]{"Đáp án A: "+ sai1+"%", "Đáp án B: "+ sai2+"%", "Đáp án C: "+ dapAnDung+"%","Đáp án D: "+ sai3+"%"};
+            items = new Integer[]{sai1 ,sai2 ,dapAnDung , sai3 };
         }
-        if (b.equals(DapAnDuocChon)) {
-            items = new String[]{"Đáp án A: " + sai2 + "%", "Đáp án B: " + dapAnDung + "%", "Đáp án C: " + sai1 + "%", "Đáp án D: " + sai3 + "%"};
+        if (d.equals(DapAnDuocChon))
+        {
+            items = new Integer[]{sai3 ,sai2 ,sai1 , dapAnDung };
         }
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("List of Items")
+        BarChart barChart = dialog.findViewById(R.id.barChart);
+        ArrayList<BarEntry> datas = new ArrayList<>();
+        datas.add(new BarEntry(0,items[0]));
+        datas.add(new BarEntry(1, items[1]));
+        datas.add(new BarEntry(2, items[2]));
+        datas.add(new BarEntry(3, items[3]));
 
-                .setItems(items, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
+        BarDataSet barDataSet = new BarDataSet(datas, "");
+        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        barDataSet.setValueTextSize(20f);
 
-        builder.setPositiveButton("OK", null);
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        Button button = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-        button.setBackgroundColor(Color.BLACK);
-        button.setPadding(0, 0, 20, 0);
-        button.setTextColor(Color.WHITE);
+        BarData barData = new BarData(barDataSet);
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        final String[] labels = new String[]{"A", "B", "C", "D"};
+        IndexAxisValueFormatter formatter = new IndexAxisValueFormatter(labels);
+        xAxis.setTextSize(20f);
+        xAxis.setGranularity(1f);
+        xAxis.setValueFormatter(formatter);
+
+        barChart.setData(barData);
+        //barChart.setFitBars(true);
+
+        // Không vẽ lưới trên biểu đồ
+        xAxis.setDrawGridLines(false);
+        barChart.getAxisLeft().setEnabled(false);
+        barChart.getAxisRight().setEnabled(false);
+
+        barChart.getLegend().setEnabled(false);
+        barChart.getDescription().setEnabled(false);
+
+        barChart.setDoubleTapToZoomEnabled(false);
+
+        barChart.setTouchEnabled(false);
+
+        barChart.animateXY(5000, 5000);
+
+        barChart.invalidate();
     }
 }
 

@@ -10,6 +10,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class khangia extends Dialog {
         labels.add("2014");
         labels.add("2013");
 
-        BarData data = new BarData(labels, bardataset);
+        BarData data = new BarData((IBarDataSet) labels, bardataset);
         barChart.setData(data); // set the data and list of labels into chart
         bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
         barChart.animateY(5000);
