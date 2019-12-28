@@ -1,15 +1,27 @@
 package com.huuthongit.doantraloicauhoi;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.EditText;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private EditText editTextTenDangNhap;
+    private EditText editTextMatKhau;
+    private final static String FILE_NAME_SHAREREF = "com.huuthongit.doantraloicauhoi";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Button buttondangnhap;
@@ -20,13 +32,10 @@ public class MainActivity extends AppCompatActivity {
         buttondangnhap=(Button)findViewById(R.id.button_dangnhap_dangnhap);
         buttondangki=(Button)findViewById(R.id.button_dangnhap_dangki);
         buttonquenmatkhau=(Button)findViewById(R.id.button_dangnhap_quenmatkhau);
-        buttondangnhap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent dangnhap=new Intent(MainActivity.this,Menu.class);
-                startActivity(dangnhap);
-            }
-        });
+        editTextMatKhau=findViewById(R.id.editText_danghap_matkhau);
+        editTextTenDangNhap=findViewById(R.id.editText_danghap_tendangnhap);
+        sharedPreferences = getSharedPreferences(FILE_NAME_SHAREREF, MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         buttondangki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,5 +43,53 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(dangki);
             }
         });
+    }
+    public void launchActivityMenu() { Intent intent = new Intent(this, Menu.class);
+        startActivity(intent); }
+    public void a() { Intent intent = new Intent(this, QuanLiTaiKhoan.class);
+        startActivity(intent); }
+    public void DangNhap(View view) {
+        EditText txtUsername = findViewById(R.id.editText_danghap_tendangnhap);
+        EditText txtPassword = findViewById(R.id.editText_danghap_matkhau);
+
+        String TaiKhoan = txtUsername.getText().toString();
+        String MatKhau = txtPassword.getText().toString();
+
+        new DangNhapLoader(){
+            @Override
+            protected void onPostExecute(String s) {
+                try {
+                    JSONObject json = new JSONObject(s);
+                    boolean success = json.getBoolean("status");
+                    if(!success) {
+                        String mess = json.getString("mess");
+                        editTextMatKhau.setText("");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(
+                                MainActivity.this);
+                        builder.setTitle("Thông báo");
+                        builder.setMessage(""+mess);
+                        builder.setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
+
+                                    }
+                                });
+
+                        builder.show();
+                    }
+                    if (success) {
+                        String token = "earer " + json.getString("token");
+                        editor.putString("TOKEN", token);
+                        editor.commit();
+                        launchActivityMenu();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.execute(TaiKhoan, MatKhau);
     }
 }

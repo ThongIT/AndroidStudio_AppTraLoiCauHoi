@@ -64,6 +64,7 @@
         android:backgroundTint="#0000CD"
         android:ellipsize="none"
         android:text="Đăng nhập"
+        android:onClick="DangNhap"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"
