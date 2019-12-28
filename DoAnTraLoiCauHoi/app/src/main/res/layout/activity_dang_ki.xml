@@ -15,6 +15,7 @@
         android:backgroundTint="#0000CD"
         android:ellipsize="none"
         android:text="Đăng kí"
+        android:onClick="DangKi"
         android:textColor="#DAF7F2F2"
         android:textSize="18sp"
         android:textStyle="bold"

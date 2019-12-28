@@ -17,12 +17,12 @@
         <activity android:name=".LichSuChoi" />
         <activity android:name=".MuaCredit" />
         <activity android:name=".CauHoi" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".LinhVucCauHoi" />
         <activity android:name=".QuanLiTaiKhoan" />
         <activity android:name=".Menu" />
         <activity android:name=".MatKhau" />
         <activity android:name=".DangKi" />
-        <activity android:name=".LinhVucCauHoi">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
