@@ -17,8 +17,8 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+    public static SharedPreferences sharedPreferences;
+    public static SharedPreferences.Editor editor;
     private EditText editTextTenDangNhap;
     private EditText editTextMatKhau;
     private final static String FILE_NAME_SHAREREF = "com.huuthongit.doantraloicauhoi";
@@ -79,8 +79,16 @@ public class MainActivity extends AppCompatActivity {
                         builder.show();
                     }
                     if (success) {
-                        String token = "earer " + json.getString("token");
-                        editor.putString("TOKEN", token);
+                        String token = json.getString("token");
+                        String credit = json.getString("credit");
+                        String ten_dang_nhap = json.getString("ten_dang_nhap");
+                        String id = json.getString("id");
+                        String diem_cao_nhat = json.getString("diem_cao_nhat");
+                        editor.putString("token", token);
+                        editor.putString("credit", credit);
+                        editor.putString("ten_dang_nhap", ten_dang_nhap);
+                        editor.putString("id", id);
+                        editor.putString("diem_cao_nhat", diem_cao_nhat);
                         editor.commit();
                         launchActivityMenu();
                     }

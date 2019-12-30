@@ -26,6 +26,8 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
     private Button linhVuc3;
     private Button linhVuc4;
     private Button linhVuc5;
+    TextView textView_tendangnhap;
+    TextView textView_credit;
     TextView textView_Tim;
     public int z=5;
     public static String linhVucDuocChon;
@@ -36,6 +38,8 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linh_vuc_cau_hoi);
         textView_Tim=findViewById(R.id.textView_linhvuccauhoi_tim);
+        textView_tendangnhap=findViewById(R.id.textView_linhvuccauhoi_tendangnhap);
+        textView_credit=findViewById(R.id.textView_linhvuccauhoi_credit);
         linhVuc1 = findViewById(R.id.button_linhvuccauhoi_1);
         linhVuc2 = findViewById(R.id.button_linhvuccauhoi_2);
         linhVuc3 = findViewById(R.id.button_linhvuccauhoi_3);
@@ -45,6 +49,15 @@ public class LinhVucCauHoi extends AppCompatActivity implements LoaderManager.Lo
             getSupportLoaderManager().initLoader(0, null, this);
         }
         getSupportLoaderManager().restartLoader(0, null, this);
+        String token = MainActivity.sharedPreferences.getString("token", "");
+        if (token == "") {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        String ten_dang_nhap = MainActivity.sharedPreferences.getString("ten_dang_nhap", "");
+        String credit = MainActivity.sharedPreferences.getString("credit", "");
+        textView_tendangnhap.setText(ten_dang_nhap);
+        textView_credit.setText(credit);
 
     }
 
